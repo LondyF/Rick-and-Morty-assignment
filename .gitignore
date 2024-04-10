@@ -1,0 +1,25 @@
+# dependencies, based on https://github.com/yarnpkg/berry/issues/454
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# production
+/build
+/storybook-static
+
+# misc
+.DS_Store
+.vscode
+*.pem
+.~*
+
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
