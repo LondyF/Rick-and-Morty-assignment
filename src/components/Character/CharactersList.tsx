@@ -1,10 +1,13 @@
 import { Grid } from "@mui/material";
 import useCharactersQuery from "../../hooks/use-characters-query";
+import { useFilters } from "../../contexts/filters";
 
 import CharacterCard from "./CharacterCard";
 
 const CharactersList = () => {
-  const { data: characters } = useCharactersQuery({});
+  const { filters } = useFilters();
+
+  const { data: characters } = useCharactersQuery(filters);
 
   return (
     <Grid container spacing={5} rowSpacing={5}>

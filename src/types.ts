@@ -1,6 +1,8 @@
-export type CharacterGender = "Female" | "Male" | "Genderless" | "unknown";
+import { CHARACTER_GENDERS, CHARACTER_STATUSES } from "./consts";
 
-export type CharacterStatus = "Alive" | "Dead" | "unknown";
+export type CharacterGender = (typeof CHARACTER_GENDERS)[number];
+
+export type CharacterStatus = (typeof CHARACTER_STATUSES)[number];
 
 export type Character = {
   id: number;

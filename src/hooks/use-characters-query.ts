@@ -22,8 +22,7 @@ type UseCharactersQueryOptions = {
 };
 
 const keys = {
-  characters: (query: UseCharactersQueryOptions) =>
-    ["characters", query] as const,
+  characters: (query: UseCharactersQueryOptions) => ["characters", query],
 } as const;
 
 const useCharactersQuery = (options: UseCharactersQueryOptions) => {
