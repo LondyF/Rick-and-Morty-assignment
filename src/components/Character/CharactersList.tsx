@@ -1,4 +1,6 @@
-import useCharactersQuery from "../hooks/use-characters-query";
+import useCharactersQuery from "../../hooks/use-characters-query";
+
+import CharacterCard from "./CharacterCard";
 
 const CharactersList = () => {
   const { data: characters } = useCharactersQuery({});
@@ -6,7 +8,7 @@ const CharactersList = () => {
   return (
     <div>
       {characters?.results.map((character) => (
-        <div key={character.id}>{character.name}</div>
+        <CharacterCard {...character} />
       ))}
     </div>
   );

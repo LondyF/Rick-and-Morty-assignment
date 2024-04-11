@@ -1,7 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 
 import httpClient from "../utils/http-client";
-import { Character, CharacterGender, PaginationInfo } from "../types";
+
+import {
+  Character,
+  CharacterGender,
+  CharacterStatus,
+  PaginationInfo,
+} from "../types";
 
 type CharactersQueryResponse = {
   info: PaginationInfo;
@@ -10,8 +16,8 @@ type CharactersQueryResponse = {
 
 type UseCharactersQueryOptions = {
   gender?: CharacterGender;
+  status?: CharacterStatus;
   species?: string;
-  status?: string;
   name?: string;
 };
 
