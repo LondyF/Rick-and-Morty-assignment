@@ -1,4 +1,8 @@
+import React from "react";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import CharactersList from "./components/CharactersList";
 
 const darkTheme = createTheme({
   palette: {
@@ -7,11 +11,15 @@ const darkTheme = createTheme({
 });
 
 function App() {
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      <main>App</main>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={darkTheme}>
+        <CssBaseline />
+        <CharactersList />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
