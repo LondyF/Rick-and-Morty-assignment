@@ -1,5 +1,10 @@
 import React from "react";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import {
+  Container,
+  CssBaseline,
+  ThemeProvider,
+  createTheme,
+} from "@mui/material";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import CharactersList from "./components/Character/CharactersList";
@@ -17,7 +22,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <CharactersList />
+        <Container maxWidth="md">
+          <CharactersList />
+        </Container>
       </ThemeProvider>
     </QueryClientProvider>
   );
