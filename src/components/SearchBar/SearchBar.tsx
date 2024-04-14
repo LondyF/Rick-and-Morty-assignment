@@ -16,15 +16,13 @@ const SearchBar = () => {
   );
 
   return (
-    <div>
-      <TextField
-        onChange={handleNameFilterChange}
-        fullWidth
-        type="text"
-        placeholder="Search..."
-        label="Character name"
-      />
-    </div>
+    <TextField
+      onChange={handleNameFilterChange}
+      fullWidth
+      type="text"
+      placeholder="Search..."
+      label="Character name"
+    />
   );
 };
 

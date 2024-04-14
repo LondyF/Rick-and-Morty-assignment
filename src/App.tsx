@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import CharactersList from "./components/Character/CharactersList";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Filters from "./components/Filters/Filters";
 import { FiltersProvider } from "./contexts/filters";
 
 const darkTheme = createTheme({
@@ -28,7 +29,10 @@ function App() {
           <CssBaseline />
           <Container maxWidth="md">
             <Stack gap={3}>
-              <SearchBar />
+              <Stack display="flex" direction="row">
+                <SearchBar />
+                <Filters />
+              </Stack>
               <CharactersList />
             </Stack>
           </Container>
