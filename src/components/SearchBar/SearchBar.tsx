@@ -2,8 +2,7 @@ import { TextField } from "@mui/material";
 
 import { useFilters } from "../../contexts/filters";
 import { useDebounce } from "../../hooks/use-debounce";
-
-const DEBOUNCE_DELAY = 1000;
+import { DEBOUNCE_DELAY } from "../../config";
 
 const SearchBar = () => {
   const { setNameFilter } = useFilters();

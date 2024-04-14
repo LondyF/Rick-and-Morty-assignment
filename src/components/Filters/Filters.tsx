@@ -3,6 +3,7 @@ import { Button, Popover, styled } from "@mui/material";
 import MultiSelectFilter from "./SelectFilter";
 import { CHARACTER_GENDERS, CHARACTER_STATUSES } from "../../consts";
 import { useFilters } from "../../contexts/filters";
+import SearchFilter from "./SearchFilter";
 
 const Separator = styled("div")({
   height: "1px",
@@ -10,7 +11,8 @@ const Separator = styled("div")({
 });
 
 const Filters = () => {
-  const { filters, setGenderFilter, setStatusFilter } = useFilters();
+  const { filters, setGenderFilter, setStatusFilter, setSpeciesFilter } =
+    useFilters();
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
@@ -49,6 +51,10 @@ const Filters = () => {
           options={CHARACTER_STATUSES}
           selectedFilter={filters.status}
           onSelectedFilterChange={setStatusFilter}
+        />
+        <SearchFilter
+          filterValue={filters.species}
+          onFilterValueChange={(value) => setSpeciesFilter(value)}
         />
         <Separator />
       </Popover>
