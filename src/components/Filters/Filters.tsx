@@ -22,10 +22,13 @@ const Filters = () => {
     useFilters();
 
   const [filters, setFilters] = React.useState(filtersFromStore);
-
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
     null
   );
+
+  React.useEffect(() => {
+    setFilters(filtersFromStore);
+  }, [filtersFromStore]);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
