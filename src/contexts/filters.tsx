@@ -2,7 +2,7 @@ import React from "react";
 
 import { CharacterGender, CharacterStatus } from "../types";
 
-type FilterState = {
+export type FilterState = {
   name?: string;
   species?: string;
   status?: CharacterStatus;
@@ -11,18 +11,12 @@ type FilterState = {
 
 type FilterContext = {
   filters: FilterState;
-  setNameFilter: (name: string) => void;
-  setSpeciesFilter: (species: string) => void;
-  setStatusFilter: (status: FilterState["status"]) => void;
-  setGenderFilter: (gender: FilterState["gender"]) => void;
+  setFilters: (filters: FilterState) => void;
 };
 
 const FiltersContext = React.createContext<FilterContext>({
   filters: {},
-  setNameFilter: () => {},
-  setSpeciesFilter: () => {},
-  setStatusFilter: () => {},
-  setGenderFilter: () => {},
+  setFilters: () => {},
 });
 
 export const FiltersProvider = ({
@@ -32,25 +26,13 @@ export const FiltersProvider = ({
 }) => {
   const [filters, setFilters] = React.useState<FilterState>({});
 
-  const setNameFilter = (name: string) =>
-    setFilters((prev) => ({ ...prev, name }));
-
-  const setSpeciesFilter = (species: string) =>
-    setFilters((prev) => ({ ...prev, species }));
-
-  const setStatusFilter = (status: FilterState["status"]) =>
-    setFilters((prev) => ({ ...prev, status }));
-
-  const setGenderFilter = (gender: FilterState["gender"]) =>
-    setFilters((prev) => ({ ...prev, gender }));
+  const setFiltersFn = (updatedFilters: Partial<FilterState>) =>
+    setFilters((prev) => ({ ...prev, ...updatedFilters }));
 
   return (
     <FiltersContext.Provider
       value={{
-        setNameFilter,
-        setSpeciesFilter,
-        setStatusFilter,
-        setGenderFilter,
+        setFilters: setFiltersFn,
         filters,
       }}
     >

@@ -5,11 +5,11 @@ import { useDebounce } from "../../hooks/use-debounce";
 import { DEBOUNCE_DELAY } from "../../config";
 
 const SearchBar = () => {
-  const { setNameFilter } = useFilters();
+  const { setFilters } = useFilters();
 
   const handleNameFilterChange = useDebounce(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      setNameFilter(e.target.value.toLowerCase().trim());
+      setFilters({ name: e.target.value.toLowerCase().trim() });
     },
     DEBOUNCE_DELAY
   );

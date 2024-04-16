@@ -1,5 +1,6 @@
 import {
   FormControl,
+  InputLabel,
   MenuItem,
   Select,
   SelectChangeEvent,
@@ -8,12 +9,14 @@ import {
 type Props<T extends readonly string[]> = {
   options: T;
   selectedFilter: T[number] | undefined;
+  label: string;
   onSelectedFilterChange: (selectedFilters: T[number]) => void;
 };
 
 const MultiSelectFilter = <T extends readonly string[]>({
   options,
   selectedFilter,
+  label,
   onSelectedFilterChange,
 }: Props<T>) => {
   const handleChange = (event: SelectChangeEvent<T[number]>) => {
@@ -25,13 +28,8 @@ const MultiSelectFilter = <T extends readonly string[]>({
 
   return (
     <FormControl fullWidth>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={selectedFilter}
-        label="Age"
-        onChange={handleChange}
-      >
+      <InputLabel>{label}</InputLabel>
+      <Select value={selectedFilter} label={label} onChange={handleChange}>
         {options.map((option) => (
           <MenuItem key={option} value={option}>
             {option}
