@@ -11,12 +11,12 @@ export type FilterState = {
 
 type FilterContext = {
   filters: FilterState;
-  setFilters: (filters: FilterState) => void;
+  updateFilters: (filters: FilterState) => void;
 };
 
 const FiltersContext = React.createContext<FilterContext>({
   filters: {},
-  setFilters: () => {},
+  updateFilters: () => {},
 });
 
 export const FiltersProvider = ({
@@ -26,13 +26,13 @@ export const FiltersProvider = ({
 }) => {
   const [filters, setFilters] = React.useState<FilterState>({});
 
-  const setFiltersFn = (updatedFilters: Partial<FilterState>) =>
+  const updateFilters = (updatedFilters: Partial<FilterState>) =>
     setFilters((prev) => ({ ...prev, ...updatedFilters }));
 
   return (
     <FiltersContext.Provider
       value={{
-        setFilters: setFiltersFn,
+        updateFilters,
         filters,
       }}
     >

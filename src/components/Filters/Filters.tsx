@@ -18,7 +18,7 @@ const StyledPopover = styled(Popover)({
 });
 
 const Filters = () => {
-  const { filters: filtersFromStore, setFilters: setStoredFilters } =
+  const { filters: filtersFromStore, updateFilters: updateStoredFilters } =
     useFilters();
 
   const [filters, setFilters] = React.useState(filtersFromStore);
@@ -50,7 +50,7 @@ const Filters = () => {
 
   const handleSaveStoredFilters = () => {
     setFilters(filters);
-    setStoredFilters(filters);
+    updateStoredFilters(filters);
     handleClose();
   };
 
