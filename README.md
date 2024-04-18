@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+# Rick and Morty Character Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Rick and Morty Character Showcase application! This front-end application allows users to explore a list of characters from the popular Rick and Morty franchise. Users can easily search and filter characters based on various criteria.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Searchable List of Characters**:
+- **Filtering**
+- **Infinite Scrolling**
+- **Detail Page/Modal**
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**
+- **Rick and Morty API**
+- **External Libraries**
+- **MUI V5**
+- **Tanstack Query**
 
-- Configure the top-level `parserOptions` property like this:
+## Project Setup
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To set up the project locally, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Run `yarn install` to install the dependencies.
+4. Start the application using `yarn dev`.
+5. Access the application in your web browser at `http://localhost:5173`.
