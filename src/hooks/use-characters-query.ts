@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 import httpClient from "../utils/http-client";
 
@@ -26,14 +26,26 @@ const keys = {
 } as const;
 
 const useCharactersQuery = (options: UseCharactersQueryOptions) => {
-  return useQuery({
+  return useInfiniteQuery({
+    initialPageParam: 0,
     queryKey: keys.characters(options),
-    queryFn: async () => {
+    queryFn: async ({ pageParam }) => {
       const { data } = await httpClient.get<CharactersQueryResponse>(
-        `/character/?${new URLSearchParams(options).toString()}`
+        `/character/?${new URLSearchParams({
+          ...options,
+          page: String(pageParam),
+        }).toString()}`
       );
 
       return data;
+    },
+    getNextPageParam: ({ info }) => {
+      if (!info.next) return undefined;
+
+      const url = new URL(String(info.next));
+      const page = url.searchParams.get("page");
+
+      return !!page ? Number(page) : undefined;
     },
   });
 };
