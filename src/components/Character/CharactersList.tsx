@@ -14,12 +14,21 @@ const CharactersList = () => {
     data: characters,
     hasNextPage,
     fetchNextPage,
+    isFetching,
   } = useCharactersQuery(filters);
 
   const allCharacters = React.useMemo(
     () => characters?.pages.flatMap((page) => page.results),
     [characters]
   );
+
+  if (isFetching && !allCharacters) {
+    return <span>loading..</span>;
+  }
+
+  if (!allCharacters) {
+    return <span>no characters found</span>;
+  }
 
   return (
     <InfiniteScroll
