@@ -13,7 +13,20 @@ import {
 
 import { Character } from "../../types";
 
+import { motion } from "framer-motion";
+
 import CharacterStatusChip from "./StatusChip";
+
+const fadeInAnimationsVariants = {
+  initial: {
+    opacity: 0,
+    y: 80,
+  },
+  animate: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
 const StyledTitleContainer = styled(Box)(({ theme }) => ({
   marginBottom: theme.spacing(1),
@@ -27,11 +40,21 @@ const StyledTitleContainer = styled(Box)(({ theme }) => ({
   },
 }));
 
+const MotionCard = motion(Card);
+
 type Props = Character;
 
 const CharacterCard = ({ name, image, status, gender, species }: Props) => {
   return (
-    <Card sx={{ maxWidth: 300 }}>
+    <MotionCard
+      sx={{ maxWidth: 300 }}
+      variants={fadeInAnimationsVariants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{
+        once: true,
+      }}
+    >
       <Box position="relative">
         <CardMedia component="img" alt="green iguana" image={image} />
         <Stack
@@ -69,7 +92,7 @@ const CharacterCard = ({ name, image, status, gender, species }: Props) => {
       <CardActions>
         <Button>More</Button>
       </CardActions>
-    </Card>
+    </MotionCard>
   );
 };
 

@@ -24,7 +24,7 @@ const CharactersList = () => {
       dataLength={allCharacters?.length ?? 0}
       loader={<span>loading..</span>}
     >
-      <Grid id="ok" container spacing={5} rowSpacing={5}>
+      <Grid sx={{ overflow: "hidden" }} container spacing={5} rowSpacing={5}>
         {allCharacters?.map((character) => (
           <Grid item md={4} key={character.id}>
             <CharacterCard {...character} />
