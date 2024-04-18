@@ -1,3 +1,4 @@
+import React from "react";
 import { Grid } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -15,7 +16,10 @@ const CharactersList = () => {
     fetchNextPage,
   } = useCharactersQuery(filters);
 
-  const allCharacters = characters?.pages.flatMap((page) => page.results);
+  const allCharacters = React.useMemo(
+    () => characters?.pages.flatMap((page) => page.results),
+    [characters]
+  );
 
   return (
     <InfiniteScroll
