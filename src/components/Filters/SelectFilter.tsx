@@ -29,7 +29,11 @@ const MultiSelectFilter = <T extends readonly string[]>({
   return (
     <FormControl fullWidth>
       <InputLabel>{label}</InputLabel>
-      <Select value={selectedFilter} label={label} onChange={handleChange}>
+      <Select
+        value={selectedFilter ?? ""}
+        label={label}
+        onChange={handleChange}
+      >
         {options.map((option) => (
           <MenuItem key={option} value={option}>
             {option}
