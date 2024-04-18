@@ -2,7 +2,7 @@ import { Chip, styled } from "@mui/material";
 
 import { CharacterStatus } from "../../types";
 
-type Props = {
+type CharacterStatusChipProps = {
   status: CharacterStatus;
 };
 
@@ -10,7 +10,7 @@ const StyledChip = styled(Chip)(({ theme }) => ({
   boxShadow: theme.shadows[5],
 }));
 
-const CharacterStatusChip = ({ status }: Props) => {
+export const CharacterStatusChip = ({ status }: CharacterStatusChipProps) => {
   const colorMap = {
     Alive: "success",
     Dead: "error",
@@ -20,4 +20,14 @@ const CharacterStatusChip = ({ status }: Props) => {
   return <StyledChip label={status} color={colorMap[status]} />;
 };
 
-export default CharacterStatusChip;
+type CharacterSpeciesChipProps = {
+  species: string;
+};
+
+export const CharacterSpeciesChip = ({
+  species,
+}: CharacterSpeciesChipProps) => {
+  return (
+    <StyledChip sx={{ background: "rgba(0, 0, 0, 0.5)" }} label={species} />
+  );
+};
