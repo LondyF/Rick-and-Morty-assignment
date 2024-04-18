@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 
 import { Character } from "../../types";
+
 import { CharacterStatusChip, CharacterSpeciesChip } from "./StatusChips";
 
 const StyledDialogTitleContainer = styled(DialogTitle)(({ theme }) => ({
