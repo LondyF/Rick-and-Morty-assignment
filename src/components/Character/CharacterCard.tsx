@@ -10,10 +10,9 @@ import {
   Typography,
   styled,
 } from "@mui/material";
+import { motion } from "framer-motion";
 
 import { Character } from "../../types";
-
-import { motion } from "framer-motion";
 
 import CharacterStatusChip from "./StatusChip";
 
